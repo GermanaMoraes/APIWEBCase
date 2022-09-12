@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.JsonPatch;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace DesafioCase.Interfaces
 {
@@ -15,8 +16,7 @@ namespace DesafioCase.Interfaces
 
         //Alterar Parcialmente utilizando o Json
         void UpdateParcial(JsonPatchDocument patchConsulta, Consultum consulta);
-        
-
+       
     }
 }
 

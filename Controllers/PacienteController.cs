@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using DesafioCase.Interfaces;
 using DesafioCase.Models;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace DesafioCase.Controllers
 {
@@ -112,8 +113,44 @@ namespace DesafioCase.Controllers
 
         }
 
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchPaciente)
+        {
+            try
+            {
+                if (patchPaciente == null)
+                { return BadRequest(); }
+
+                var paciente = repositorio.GetbyId(id);
+                if (paciente == null)
+                {
+                    return NotFound(new { Message = "Paciente não encontrada." });
+                }
+
+                repositorio.UpdateParcial(patchPaciente, paciente);
+
+                return Ok(paciente);
+
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return StatusCode(500, new
+                {
+                    Erro = "Falha na Transação",
+                    Message = ex.Message
+                });
+            }
+        }
+
+
+
+
     }
+
 }
+
 
 
 
