@@ -19,7 +19,7 @@ namespace DesafioCase.Repositories
 
         public void Delete(Medico medico)
         {
-            throw new System.NotImplementedException();
+            ctx.Medicos.Remove(medico);
         }
 
         public ICollection<Medico> GetAll()

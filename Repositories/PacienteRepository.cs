@@ -18,7 +18,7 @@ namespace DesafioCase.Repositories
 
         public void Delete(Paciente paciente)
         {
-            throw new System.NotImplementedException();
+            ctx.Pacientes.Remove(paciente);
         }
 
         public ICollection<Paciente> GetAll()

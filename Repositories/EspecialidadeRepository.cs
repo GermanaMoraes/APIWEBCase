@@ -20,7 +20,7 @@ namespace DesafioCase.Repositories
 
         public void Delete(Especialidade especialidade)
         {
-            throw new System.NotImplementedException();
+            ctx.Especialidades.Remove(especialidade);
         }
 
         public ICollection<Especialidade> GetAll()

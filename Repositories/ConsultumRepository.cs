@@ -19,7 +19,8 @@ namespace DesafioCase.Repositories
 
         public void Delete(Consultum consulta)
         {
-            throw new System.NotImplementedException();
+            ctx.Consulta.Remove(consulta);
+            
         }
 
         public ICollection<Consultum> GetAll()

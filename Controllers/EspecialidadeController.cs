@@ -145,11 +145,43 @@ namespace DesafioCase.Controllers
             }
         }
 
+        [HttpDelete("{id")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var buscar = repositorio.GetById(id);
+                if (buscar == null)
+                {
+                    return NotFound(new { Message = "Especialidade não encontrada." });
+                }
+
+                repositorio.Delete(buscar);
+                return NoContent();
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return StatusCode(500, new
+                {
+                    Erro = "Falha na Transação",
+                    Message = ex.Message
+                });
+            }
+        }
 
 
 
     }
 }
+
+
+
+
+
+
+
 
 
 

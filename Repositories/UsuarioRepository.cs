@@ -18,7 +18,7 @@ namespace DesafioCase.Repositories
 
         public void Delete(Usuario usuario)
         {
-            throw new System.NotImplementedException();
+            ctx.Usuarios.Remove(usuario);
         }
 
         public ICollection<Usuario> GetAll()
