@@ -1,4 +1,5 @@
 ﻿using DesafioCase.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
 namespace DesafioCase.Interfaces
@@ -9,7 +10,9 @@ namespace DesafioCase.Interfaces
         ICollection<TipoUsuario> GetAll();
         TipoUsuario GetbyId(int id);
         void Update(TipoUsuario tipoUsuario);
-        void Excluir(TipoUsuario tipoUsuario);    
+        void Excluir(TipoUsuario tipoUsuario);
+
+        void UpdateParcial (JsonPatchDocument patchTipo, TipoUsuario tipoUsuario);
 
     }
 }

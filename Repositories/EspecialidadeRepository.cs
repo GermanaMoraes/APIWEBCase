@@ -4,6 +4,7 @@ using DesafioCase.Data;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace DesafioCase.Repositories
 {
@@ -45,6 +46,13 @@ namespace DesafioCase.Repositories
         public void Update(Especialidade especialidade)
         {
             
+            ctx.Entry(especialidade).State = EntityState.Modified;
+            ctx.SaveChanges();
+        }
+
+        public void UpdateParcial(JsonPatchDocument patchEsp, Especialidade especialidade)
+        {
+            patchEsp.ApplyTo(especialidade);
             ctx.Entry(especialidade).State = EntityState.Modified;
             ctx.SaveChanges();
         }

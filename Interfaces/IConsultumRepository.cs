@@ -1,4 +1,5 @@
 ﻿using DesafioCase.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,6 +12,11 @@ namespace DesafioCase.Interfaces
         Consultum GetById(int id);
         void Update(Consultum consulta);
         void Delete(Consultum consulta);
+
+        //Alterar Parcialmente utilizando o Json
+        void UpdateParcial(JsonPatchDocument patchConsulta, Consultum consulta);
+        
+
     }
 }
 

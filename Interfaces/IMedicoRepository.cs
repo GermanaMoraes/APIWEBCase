@@ -1,4 +1,5 @@
 ﻿using DesafioCase.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
 namespace DesafioCase.Interfaces
@@ -11,5 +12,6 @@ namespace DesafioCase.Interfaces
         void Update (Medico medico);
         void Delete(Medico medico);
 
+        void UpdateParcial (JsonPatchDocument patchMedico,Medico medico);
     }
 }

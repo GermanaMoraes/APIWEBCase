@@ -1,6 +1,7 @@
 ﻿using DesafioCase.Data;
 using DesafioCase.Interfaces;
 using DesafioCase.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace DesafioCase.Repositories
 
         public void Update(Paciente paciente)
         {
+            ctx.Entry(paciente).State = EntityState.Modified;
+            ctx.SaveChanges();
+        }
+
+        public void UpdateParcial(JsonPatchDocument patchPaciente, Paciente paciente)
+        {
+            patchPaciente.ApplyTo(paciente);
             ctx.Entry(paciente).State = EntityState.Modified;
             ctx.SaveChanges();
         }
