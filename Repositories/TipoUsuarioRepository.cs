@@ -19,7 +19,7 @@ namespace DesafioCase.Repositories
 
         public void Excluir(TipoUsuario tipoUsuario)
         {
-            throw new System.NotImplementedException();
+            ctx.TipoUsuarios.Remove(tipoUsuario);
         }
 
         public ICollection<TipoUsuario> GetAll()
