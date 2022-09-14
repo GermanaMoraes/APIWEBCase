@@ -145,7 +145,7 @@ namespace DesafioCase.Controllers
             }
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
