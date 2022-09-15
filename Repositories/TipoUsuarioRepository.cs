@@ -12,14 +12,14 @@ namespace DesafioCase.Repositories
     {
         ClinicaContext ctx;
 
-        public TipoUsuarioRepository(ClinicaContext ctx)
+        public TipoUsuarioRepository(ClinicaContext _ctx)
         {
-            this.ctx = ctx;
+            ctx = _ctx;
         }
 
-        public void Excluir(TipoUsuario tipoUsuario)
+        public void Delete(TipoUsuario tipoUsuario)
         {
-            ctx.TipoUsuarios.Remove(tipoUsuario);
+         ctx.TipoUsuarios.Remove(tipoUsuario);
         }
 
         public ICollection<TipoUsuario> GetAll()

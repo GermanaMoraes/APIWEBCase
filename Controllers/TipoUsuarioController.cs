@@ -151,12 +151,13 @@ namespace DesafioCase.Controllers
             try
             {
                 var buscar = repositorio.GetbyId(id);
+
                 if (buscar == null)
                 {
                     return NotFound(new { Message = "Tipo não encontrado." });
                 }
 
-                repositorio.Excluir(buscar);
+                repositorio.Delete(repositorio.GetbyId(id));
                 return NoContent();
 
             }

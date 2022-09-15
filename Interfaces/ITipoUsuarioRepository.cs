@@ -10,7 +10,7 @@ namespace DesafioCase.Interfaces
         ICollection<TipoUsuario> GetAll();
         TipoUsuario GetbyId(int id);
         void Update(TipoUsuario tipoUsuario);
-        void Excluir(TipoUsuario tipoUsuario);
+        void Delete(TipoUsuario tipoUsuario);
 
         void UpdateParcial (JsonPatchDocument patchTipo, TipoUsuario tipoUsuario);
 

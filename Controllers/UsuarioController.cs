@@ -78,6 +78,49 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Alterar um Usuário. É necessário implementar o Id na aplicação.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        public IActionResult Alterar(int id, Usuario usuario)
+        {
+            try
+            {
+                //Verificar se os ids batem
+                if (id != usuario.Id)
+                {
+                    return BadRequest();
+                }
+
+                //Verificar se o id existe no banco
+                var retorno = repositorio.GetbyId(id);
+                if (retorno == null)
+                {
+                    return NotFound(new
+                    {
+                        Message = " Consulta não encontrada"
+                    });
+                }
+                //Alterar
+                repositorio.Update(usuario);
+                return NoContent();
+            }
+            catch (System.Exception ex)
+            {
+
+                return StatusCode(500, new
+                {
+                    Erro = "Falha na Transação",
+                    Message = ex.Message
+                });
+            }
+
+        }
+
+
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchUsuario)
         {
