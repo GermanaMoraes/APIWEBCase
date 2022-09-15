@@ -40,6 +40,7 @@ namespace DesafioCase.Data
 
             modelBuilder.Entity<Consultum>(entity =>
             {
+                entity.ToTable("Consulta");
                 entity.Property(e => e.Horario).HasColumnType("datetime");
 
                 entity.HasOne(d => d.IdMedicoNavigation)

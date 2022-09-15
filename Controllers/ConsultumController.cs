@@ -113,6 +113,7 @@ namespace DesafioCase.Controllers
 
         }
 
+        
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchConsulta)
         {

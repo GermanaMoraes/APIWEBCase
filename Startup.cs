@@ -14,6 +14,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DesafioCase.Interfaces;
 using DesafioCase.Repositories;
+using System.Reflection;
+using System.IO;
 
 namespace DesafioCase
 {
@@ -34,7 +36,22 @@ namespace DesafioCase
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesafioCase", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesafioCase",
+                    Version = "v1",
+                    Description= "Sistema API WEB para uma clínica veterinária utilizando" +
+                    " o Entity Framework",
+                    TermsOfService = new Uri("https://meusite.com"),
+                    Contact= new OpenApiContact
+                    {
+                        Name= "Germana Moraes",
+                        Url= new Uri("https://meusite.com")
+                    }
+
+                });
+
+                //Para adcionar os comentários
+                var xmlArquivo = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,xmlArquivo));
             });
 
             services.AddTransient<ClinicaContext, ClinicaContext>();

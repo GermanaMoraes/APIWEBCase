@@ -78,6 +78,7 @@ namespace DesafioCase.Controllers
             }
         }
 
+        [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchUsuario)
         {
             try
@@ -108,7 +109,7 @@ namespace DesafioCase.Controllers
             }
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try

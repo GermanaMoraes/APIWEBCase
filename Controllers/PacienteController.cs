@@ -113,7 +113,7 @@ namespace DesafioCase.Controllers
 
         }
 
-        [HttpPatch("{id}")]
+       [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchPaciente)
         {
             try
@@ -142,7 +142,7 @@ namespace DesafioCase.Controllers
                     Message = ex.Message
                 });
             }
-        }
+        } 
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
