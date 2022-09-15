@@ -17,6 +17,14 @@ namespace DesafioCase.Controllers
             this.repositorio = repositorio;
         }
 
+        
+       
+
+        /// <summary>
+        /// Cadastrar um Tipo de Usuário no banco de dados
+        /// </summary>
+        /// <param name="tipoUsuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(TipoUsuario tipoUsuario)
         {
@@ -35,7 +43,10 @@ namespace DesafioCase.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Listar todas os Tipo de Usuário.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -54,6 +65,11 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar um Tipo de Usuário por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarTipoporId(int id)
         {
@@ -76,6 +92,7 @@ namespace DesafioCase.Controllers
                 });
             }
         }
+
 
         [HttpPut("{id}")]
         public IActionResult Alterar(int id, TipoUsuario tipo)

@@ -145,7 +145,7 @@ namespace DesafioCase.Controllers
         {
             try
             {
-                if(patchConsulta == null)
+                if (patchConsulta == null)
                 { return BadRequest(); }
 
                 var consulta = repositorio.GetById(id);
@@ -157,7 +157,7 @@ namespace DesafioCase.Controllers
                 repositorio.UpdateParcial(patchConsulta, consulta);
 
                 return Ok(consulta);
-                
+
 
             }
             catch (System.Exception ex)
@@ -178,17 +178,17 @@ namespace DesafioCase.Controllers
         {
             try
             {
-                var buscar = repositorio.GetById(id);
-                if (buscar == null)
+                var item = repositorio.GetById(id);
+                if (item == null)
                 {
                     return NotFound(new { Message = "Consulta não encontrada." });
                 }
+                
+                repositorio.Delete(item);
+                return NoContent();
 
-                repositorio.Delete(buscar);
-                    return NoContent();
-                
-                
-   
+
+
             }
             catch (System.Exception ex)
             {

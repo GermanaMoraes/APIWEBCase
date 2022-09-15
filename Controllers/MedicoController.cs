@@ -17,7 +17,11 @@ namespace DesafioCase.Controllers
             this.repositorio = repositorio;
         }
 
-        
+        /// <summary>
+        /// Cadastrar um Médico no banco de dados.
+        /// </summary>
+        /// <param name="medico"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Medico medico)
         {
@@ -37,6 +41,10 @@ namespace DesafioCase.Controllers
         }
 
 
+        /// <summary>
+        /// Listar todas os Médicos.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -55,6 +63,11 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar um Médico por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarMedicoporId(int id)
         {
@@ -78,6 +91,13 @@ namespace DesafioCase.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Buscar um Médico por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="medico"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Alterar(int id, Medico medico)
         {
@@ -115,7 +135,13 @@ namespace DesafioCase.Controllers
 
         }
 
-        
+
+        /// <summary>
+        /// Alterar um Médico. É necessário implementar o Id na aplicação.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="patchMedico"></param>
+        /// <returns></returns>
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchMedico)
         {

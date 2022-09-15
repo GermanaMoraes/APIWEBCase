@@ -18,6 +18,11 @@ namespace DesafioCase.Controllers
             this.repositorio = repositorio;
         }
 
+        /// <summary>
+        /// Cadastrar um Usuário no banco de dados.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Usuario usuario)
         {
@@ -37,6 +42,10 @@ namespace DesafioCase.Controllers
         }
 
 
+        /// <summary>
+        /// Listar todas os Usuários.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -55,6 +64,11 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar um Usuário por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarConsultaporId(int id)
         {
@@ -120,7 +134,12 @@ namespace DesafioCase.Controllers
 
         }
 
-
+        /// <summary>
+        ///Alterar algo específico no Usuário. Modelo: "op", "path", "value".
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="patchUsuario"></param>
+        /// <returns></returns>
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchUsuario)
         {

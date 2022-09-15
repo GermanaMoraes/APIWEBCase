@@ -18,6 +18,11 @@ namespace DesafioCase.Controllers
         }
 
 
+        /// <summary>
+        /// Cadastrar um Paciente no banco de dados.
+        /// </summary>
+        /// <param name="paciente"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Paciente paciente)
         {
@@ -36,7 +41,10 @@ namespace DesafioCase.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Listar todas os Pacientes.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -54,6 +62,12 @@ namespace DesafioCase.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// Buscar um Paciente por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPacienteporId(int id)
         {
@@ -77,6 +91,12 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Alterar um Paciente.É necessário implementar o Id na aplicação.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="paciente"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Alterar(int id, Paciente paciente)
         {
@@ -113,7 +133,15 @@ namespace DesafioCase.Controllers
 
         }
 
-       [HttpPatch("{id}")]
+
+
+        /// <summary>
+        /// Alterar algo específico no Paciente.Modelo: "op", "path", "value".
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="patchPaciente"></param>
+        /// <returns></returns>
+        [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchPaciente)
         {
             try
@@ -142,7 +170,9 @@ namespace DesafioCase.Controllers
                     Message = ex.Message
                 });
             }
-        } 
+        }
+
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

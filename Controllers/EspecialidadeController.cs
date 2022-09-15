@@ -17,7 +17,11 @@ namespace DesafioCase.Controllers
             repositorio = _repositorio;
         }
 
-
+        /// <summary>
+        /// Cadastrar uma Especialidade no banco de dados.
+        /// </summary>
+        /// <param name="especialidades"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Especialidade especialidades)
         {
@@ -36,7 +40,10 @@ namespace DesafioCase.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Listar todas as Especialidades.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -54,6 +61,12 @@ namespace DesafioCase.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// Buscar uma Especialidade por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         [HttpGet("{id}")]
         public IActionResult BuscarEspecialporId(int id)
@@ -77,6 +90,13 @@ namespace DesafioCase.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// Alterar uma Especialidade. É necessário implementar o Id na aplicação.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="especialidade"></param>
+        /// <returns></returns>
 
         [HttpPut("{id}")]
         public IActionResult Alterar(int id, Especialidade especialidade)
@@ -113,8 +133,13 @@ namespace DesafioCase.Controllers
             }
 
         }
-        
 
+        /// <summary>
+        /// Alterar algo específico na Especialidade. Modelo: "op", "path", "value".
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="patchEspecialidade"></param>
+        /// <returns></returns>
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchEspecialidade)
         {
