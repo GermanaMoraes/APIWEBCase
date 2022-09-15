@@ -18,6 +18,12 @@ namespace DesafioCase.Controllers
             repositorio = _repositorio;
         }
 
+
+        /// <summary>
+        /// Cadastrar uma Consulta no banco de dados.
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Consultum consulta)
         {
@@ -36,6 +42,10 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Listar todas as consultas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -54,6 +64,11 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar uma consulta por Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarConsultaporId(int id)
         {
@@ -77,6 +92,12 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Alterar uma consulta.  É necessário implementar o Id na aplicação.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Alterar(int id, Consultum consulta)
         {
@@ -113,7 +134,12 @@ namespace DesafioCase.Controllers
 
         }
 
-        
+        /// <summary>
+        /// Alterar algo específico na Consulta. Modelo: "op", "path", "value".
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="patchConsulta"></param>
+        /// <returns></returns>
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument patchConsulta)
         {
@@ -145,19 +171,23 @@ namespace DesafioCase.Controllers
             }
         }
 
+
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
             {
                 var buscar = repositorio.GetById(id);
-                if (buscar==null)
+                if (buscar == null)
                 {
                     return NotFound(new { Message = "Consulta não encontrada." });
                 }
 
                 repositorio.Delete(buscar);
-                return NoContent();
+                    return NoContent();
+                
+                
    
             }
             catch (System.Exception ex)

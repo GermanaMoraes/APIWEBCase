@@ -19,6 +19,8 @@ namespace DesafioCase.Repositories
 
         public void Delete(Consultum consulta)
         {
+            
+           // ctx.Consulta.Remove(consulta);
             ctx.Consulta.Remove(consulta);
             
         }
