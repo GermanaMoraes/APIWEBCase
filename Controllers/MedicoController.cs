@@ -98,6 +98,7 @@ namespace DesafioCase.Controllers
                         Message = " Médico não encontrado"
                     });
                 }
+                
                 //Alterar
                 repositorio.Update(medico);
                 return NoContent();

@@ -26,6 +26,7 @@ namespace DesafioCase.Repositories
         public ICollection<Consultum> GetAll()
         {
             return ctx.Consulta.ToList();
+                      
             
         }
 
