@@ -162,32 +162,8 @@ namespace DesafioCase.Controllers
             }
         }
         
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            try
-            {
-                var buscar = repositorio.GetbyId(id);
-
-                if (buscar == null)
-                {
-                    return NotFound(new { Message = "Tipo não encontrado." });
-                }
-
-                repositorio.Delete(repositorio.GetbyId(id));
-                return NoContent();
-
-            }
-            catch (System.Exception ex)
-            {
-
-                return StatusCode(500, new
-                {
-                    Erro = "Falha na Transação",
-                    Message = ex.Message
-                });
-            }
-        }
+       
+       
 
 
 

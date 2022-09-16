@@ -181,9 +181,8 @@ namespace DesafioCase.Controllers
                 var item = repositorio.GetById(id);
                 if (item == null)
                 {
-                    return NotFound(new { Message = "Consulta não encontrada." });
+                    return NotFound();
                 }
-                
                 repositorio.Delete(item);
                 return NoContent();
 

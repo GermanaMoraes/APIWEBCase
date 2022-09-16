@@ -171,6 +171,11 @@ namespace DesafioCase.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletar um Usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
