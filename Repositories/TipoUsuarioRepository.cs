@@ -20,6 +20,7 @@ namespace DesafioCase.Repositories
         public void Delete(TipoUsuario tipoUsuario)
         {
          ctx.TipoUsuarios.Remove(tipoUsuario);
+            ctx.SaveChanges();
         }
 
         public ICollection<TipoUsuario> GetAll()

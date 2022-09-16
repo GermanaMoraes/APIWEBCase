@@ -21,6 +21,7 @@ namespace DesafioCase.Repositories
         public void Delete(Especialidade especialidade)
         {
             ctx.Especialidades.Remove(especialidade);
+            ctx.SaveChanges();
         }
 
         public ICollection<Especialidade> GetAll()

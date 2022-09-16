@@ -22,6 +22,7 @@ namespace DesafioCase.Repositories
         {
             
            ctx.Consulta.Remove(consulta);
+            ctx.SaveChanges();
             
         }
 

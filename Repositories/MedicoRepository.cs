@@ -20,6 +20,7 @@ namespace DesafioCase.Repositories
         public void Delete(Medico medico)
         {
             ctx.Medicos.Remove(medico);
+            ctx.SaveChanges();
         }
 
         public ICollection<Medico> GetAll()
