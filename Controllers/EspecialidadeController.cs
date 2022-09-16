@@ -171,6 +171,11 @@ namespace DesafioCase.Controllers
             }
         }
         
+        /// <summary>
+        /// Deletar uma Especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

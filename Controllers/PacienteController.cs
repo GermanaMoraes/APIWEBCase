@@ -173,7 +173,11 @@ namespace DesafioCase.Controllers
         }
 
 
-
+        /// <summary>
+        /// Deletar um Paciente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
