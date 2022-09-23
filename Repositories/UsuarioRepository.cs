@@ -34,6 +34,7 @@ namespace DesafioCase.Repositories
 
         public Usuario Insert(Usuario usuario)
         {
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
             ctx.Usuarios.Add(usuario);
             ctx.SaveChanges();
             return usuario;
@@ -41,6 +42,7 @@ namespace DesafioCase.Repositories
 
         public void Update(Usuario usuario)
         {
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
             ctx.Entry(usuario).State = EntityState.Modified;
             ctx.SaveChanges();
         }
