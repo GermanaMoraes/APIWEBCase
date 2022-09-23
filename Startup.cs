@@ -16,6 +16,7 @@ using DesafioCase.Interfaces;
 using DesafioCase.Repositories;
 using System.Reflection;
 using System.IO;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DesafioCase
 {
@@ -36,24 +37,47 @@ namespace DesafioCase
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesafioCase",
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "DesafioCase",
                     Version = "v1",
-                    Description= "Sistema API WEB para uma clínica veterinária utilizando" +
+                    Description = "Sistema API WEB para uma clínica veterinária utilizando" +
                     " o Entity Framework",
                     TermsOfService = new Uri("https://meusite.com"),
-                    Contact= new OpenApiContact
+                    Contact = new OpenApiContact
                     {
-                        Name= "Germana Moraes",
-                        Url= new Uri("https://meusite.com")
+                        Name = "Germana Moraes",
+                        Url = new Uri("https://meusite.com")
                     }
 
                 });
 
                 //Para adcionar os comentários
                 var xmlArquivo = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,xmlArquivo));
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlArquivo));
             });
+            //Configuração do JWT
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            })
+                .AddJwtBearer("JwtBearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("DesafioCase-chave-autenticacao")),
+                        ClockSkew = TimeSpan.FromMinutes(30),
+                        ValidIssuer = "DesafioCase.webAPI",
+                        ValidAudience = "DesafioCase.webAPI"
+                    };
+                });
 
+
+         
             services.AddTransient<ClinicaContext, ClinicaContext>();
             services.AddTransient<IConsultumRepository, ConsultumRepository>();
             services.AddTransient<IEspecialidadeRepository, EspecialidadeRepository>();
