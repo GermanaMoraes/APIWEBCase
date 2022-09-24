@@ -3,6 +3,7 @@ using DesafioCase.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using DesafioCase.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DesafioCase.Controllers
 {
@@ -171,12 +172,14 @@ namespace DesafioCase.Controllers
             }
         }
 
+
         /// <summary>
         /// Deletar um Usuário
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             try

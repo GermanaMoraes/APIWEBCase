@@ -85,6 +85,7 @@ namespace DesafioCase
             services.AddTransient<IPacienteRepository, PacienteRepository>();
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<ILoginRepository, LoginRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,6 +101,8 @@ namespace DesafioCase
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
