@@ -18,6 +18,7 @@ using System.Reflection;
 using System.IO;
 using Microsoft.IdentityModel.Tokens;
 
+
 namespace DesafioCase
 {
     public class Startup
@@ -86,6 +87,7 @@ namespace DesafioCase
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ILoginRepository, LoginRepository>();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

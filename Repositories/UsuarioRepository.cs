@@ -11,6 +11,8 @@ namespace DesafioCase.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         ClinicaContext ctx;
+
+
         public UsuarioRepository(ClinicaContext ctx)
         {
             this.ctx = ctx;
