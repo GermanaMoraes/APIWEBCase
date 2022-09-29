@@ -6,21 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace CaseTests
+namespace TestProject
 {
-    public class ConsultumTests
+    public class MedicoTest
     {
         [Fact]
-        public void RetornarConsultumNotNull()
+        public void RetornarMedicoNotNull()
         {
             //preparação
-            Consultum consultum;
+            Medico medico;
 
             //Execução
-            consultum = new Consultum();
+            medico = new Medico();
 
             //Retorno Esperado
-            Assert.NotNull(consultum);
+            Assert.NotNull(medico);
 
 
 
